@@ -1,0 +1,43 @@
+#:kivy 1.10.0
+
+<Paddle>:
+	size: 200, 20
+	canvas:
+		Rectangle:
+			pos: self.pos
+			size: self.size
+
+<Ball>:
+	canvas:
+		Ellipse:
+			pos: self.pos
+			size: 15, 15
+
+<Environment>:
+	paddle : paddle_id
+	ball: ball_id
+
+	canvas:
+		Rectangle:
+			pos: self.width - 5, 0
+			size: 5, self.height
+
+		Rectangle:
+			pos: 0, 0
+			size: 5, self.height
+
+		Rectangle:
+			pos: 0, 30
+			size: self.width, 5
+
+		Rectangle:
+			pos: 0, self.height - 5
+			size: self.width, 5
+
+	Paddle:
+		id: paddle_id
+		pos: 5, 36
+
+	Ball:
+		id: ball_id
+		pos: self.parent.width/2, self.parent.height/2
